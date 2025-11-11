@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GameBounty — Free Gaming Rewards (US • CA • UK)</title>
+  <meta name="description" content="Unlock free in-game rewards, gift cards, and exclusive offers at GameBounty — your gaming reward hub for US, Canada, and UK players." />
+  <meta name="theme-color" content="#3b82f6">
+  <style>
+    :root {
+      --bg: #0b1120;
+      --card: #162238;
+      --text: #e2e8f0;
+      --muted: #9ca3af;
+      --accent: #3b82f6;
+      --accent2: #8b5cf6;
+      --shadow: rgba(0, 0, 0, 0.5);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      font-family: 'Inter', system-ui, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+    }
+    header {
+      text-align: center;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      padding: 2rem 1rem;
+      box-shadow: 0 0 15px var(--shadow);
+    }
+    header h1 {
+      font-size: 2rem;
+      margin-bottom: 0.25rem;
+    }
+    header p {
+      color: var(--text);
+      font-size: 1rem;
+      opacity: 0.85;
+    }
+    h2 {
+      text-align: center;
+      margin: 1.5rem 0 0.5rem;
+      color: #facc15;
+      font-size: 1.3rem;
+    }
+    #offers {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 1.5rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .offer {
+      background: var(--card);
+      border-radius: 12px;
+      box-shadow: 0 4px 15px var(--shadow);
+      text-align: center;
+      overflow: hidden;
+      transition: transform 0.2s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .offer:hover { transform: translateY(-5px); }
+    .offer img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+    }
+    .offer h3 {
+      font-size: 1rem;
+      margin: 10px 0 5px;
+      color: #fff;
+    }
+    .offer p {
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding: 0 10px;
+      min-height: 40px;
+    }
+    .cta {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 10px 16px;
+      margin: 12px auto 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      width: 80%;
+      text-decoration: none;
+      display: inline-block;
+      transition: background 0.3s;
+    }
+    .cta:hover {
+      background: var(--accent2);
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 20px;
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎮 GameBounty</h1>
+    <p>Claim gaming rewards, gift cards, and exclusive prizes instantly.</p>
+  </header>
+
+  <h2>🇺🇸 Live Gaming Offers (Auto + Local Backup)</h2>
+  <div id="offers"><p style="text-align:center;">Loading offers...</p></div>
+
+  <footer>© 2025 GameBounty.eu.cc — Powered by CPAGrip & MyLead.</footer>
+
+  <!-- 🔐 CONTENT LOCKER (replace this with your MyLead / CPAGrip locker script) -->
+  <script>
+    // Example content locker shim (replace with your MyLead embed code)
+    window.__gameLocker = {
+      open: ({ offerLink, subid }) => {
+        alert("Loading secure access... please wait.");
+        // Replace below line with your real locker open function
+        window.open(offerLink + "&tracking_id=" + encodeURIComponent(subid), "_blank");
+      }
+    };
+  </script>
+
+  <script>
+    // Configuration
+    const CPAGRIP_PROXY_URL = "https://your-worker-url.workers.dev/"; // ← your Cloudflare Worker endpoint
+    const LOCAL_BACKUP = "/offers.json";
+    const MAX_OFFERS = 48;
+
+    function getSubid() {
+      let id = localStorage.getItem("gb_subid");
+      if (!id) {
+        id = "user_" + Math.random().toString(36).substring(2, 9);
+        localStorage.setItem("gb_subid", id);
+      }
+      return id;
+    }
+
+    async function fetchOffers() {
+      const [local, live] = await Promise.all([
+        fetchLocal(),
+        fetchLive()
+      ]);
+      const merged = dedupe([...local, ...live]);
+      render(merged);
+    }
+
+    async function fetchLocal() {
+      try {
+        const res = await fetch(LOCAL_BACKUP);
+        if (!res.ok) throw new Error("local");
+        return await res.json();
+      } catch {
+        return [];
+      }
+    }
+
+    async function fetchLive() {
+      try {
+        const subid = getSubid();
+        const ua = navigator.userAgent;
+        const url = new URL(CPAGRIP_PROXY_URL);
+        url.searchParams.set("limit", MAX_OFFERS);
+        url.searchParams.set("ua", ua);
+        url.searchParams.set("tracking_id", subid);
+        const res = await fetch(url);
+        const data = await res.json();
+        return data.offers || [];
+      } catch {
+        return [];
+      }
+    }
+
+    function dedupe(offers) {
+      const seen = new Set();
+      return offers.filter(o => {
+        const key = (o.title || "").toLowerCase();
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+    }
+
+    function render(offers) {
+      const container = document.getElementById("offers");
+      if (!offers.length) {
+        container.innerHTML = `<p style="text-align:center;color:#f87171;">No offers available right now.</p>`;
+        return;
+      }
+      container.innerHTML = offers.map(o => `
+        <div class="offer">
+          <img src="${o.image}" alt="${o.title}">
+          <h3>${o.title}</h3>
+          <p>${o.description}</p>
+          <a href="javascript:void(0)" class="cta" onclick="openLocker('${encodeURIComponent(o.link)}')">🎁 Join Offer</a>
+        </div>
+      `).join("");
+    }
+
+    function openLocker(encodedLink) {
+      const link = decodeURIComponent(encodedLink);
+      const subid = getSubid();
+      window.__gameLocker.open({ offerLink: link, subid });
+    }
+
+    fetchOffers();
+  </script>
+</body>
+</html>
