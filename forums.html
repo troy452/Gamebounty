@@ -3,53 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Forums - Gaming Community Hub</title>
+  <title>Community Forums - Gaming Community Hub</title>
+  <meta name="description" content="Gaming forums for Roblox, Fortnite, and all gamers.">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="header">
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-left">
+    <button id="hamburger">☰</button>
     <div class="logo">Gaming Hub</div>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="news.html">News</a>
-      <a href="forums.html" class="active">Forums</a>
-      <a href="memes.html">Memes</a>
-      <a href="profiles.html">Profiles</a>
-      <a href="giveaways.html">Giveaways</a>
-    </nav>
-  </header>
+  </div>
 
-  <section class="page-header">
-    <h1>💬 Community Forums</h1>
-    <p>Join discussions, ask questions, and share your game knowledge.</p>
-  </section>
+  <nav class="nav" id="mainNav">
+    <a href="index.html">Home</a>
+    <a href="news.html">News</a>
+    <a href="forums.html" class="active">Forums</a>
+    <a href="memes.html">Memes</a>
+    <a href="profiles.html">Profiles</a>
+    <a href="giveaways.html">Giveaways</a>
+  </nav>
 
-  <section class="forum-list">
-    <div class="forum-item">
-      <h2>Roblox Discussions</h2>
-      <p>Talk about events, avatar designs, and experiences.</p>
-      <a class="btn" href="#">Enter</a>
+  <div class="header-right">
+    <div class="theme-switch">
+      <select id="themeSelect">
+        <option value="">Default</option>
+        <option value="theme-roblox">Roblox</option>
+        <option value="theme-fortnite">Fortnite</option>
+      </select>
     </div>
+  </div>
+</header>
 
-    <div class="forum-item">
-      <h2>Fortnite Battle Talk</h2>
-      <p>Strategies, skins, updates, and pro tips.</p>
-      <a class="btn" href="#">Enter</a>
-    </div>
+<!-- MOBILE NAV -->
+<nav class="bottom-nav">
+  <a href="index.html">Home</a>
+  <a href="forums.html">Forums</a>
+  <a href="memes.html">Memes</a>
+  <a href="profiles.html">Profile</a>
+</nav>
 
-    <div class="forum-item">
-      <h2>Mobile Games</h2>
-      <p>Free Fire, PUBG Mobile, CODM, and more.</p>
-      <a class="btn" href="#">Enter</a>
-    </div>
+<!-- PAGE HEADER -->
+<section class="page-header fade-in">
+  <h1>💬 Community Forums</h1>
+  <p>Discuss games, share tips, and connect with other players.</p>
+</section>
 
-    <div class="forum-item">
-      <h2>General Gaming</h2>
-      <p>All other games, news, and discussions.</p>
-      <a class="btn" href="#">Enter</a>
-    </div>
-  </section>
+<!-- FORUM LIST -->
+<section class="forum-list fade-in">
 
-  <footer class="footer">© 2025 Gaming Community Hub</footer>
+  <div class="forum-item">
+    <h2>Roblox Discussions</h2>
+    <p>Avatar ideas, events, favorite games, and building help.</p>
+    <a class="btn" href="#">Enter</a>
+  </div>
+
+  <div class="forum-item">
+    <h2>Fortnite Battle Talk</h2>
+    <p>Drop locations, skins, clips, updates, and strategies.</p>
+    <a class="btn" href="#">Enter</a>
+  </div>
+
+  <div class="forum-item">
+    <h2>Mobile Games</h2>
+    <p>Free Fire, PUBG Mobile, CODM, and more mobile gaming chats.</p>
+    <a class="btn" href="#">Enter</a>
+  </div>
+
+  <div class="forum-item">
+    <h2>General Gaming</h2>
+    <p>Any game, any platform — talk about anything!</p>
+    <a class="btn" href="#">Enter</a>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">© 2025 Gaming Community Hub — All rights reserved.</footer>
+<script src="script.js"></script>
 </body>
 </html>
