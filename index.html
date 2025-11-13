@@ -1,24 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gaming Community Hub</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gaming Community Hub</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="logo">Gaming Hub</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="news.html">News</a>
+      <a href="forums.html">Forums</a>
+      <a href="memes.html">Memes</a>
+      <a href="profiles.html">Profiles</a>
+      <a href="giveaways.html">Giveaways</a>
+    </nav>
+  </header>
 
-    <!-- Favicon (optional) -->
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <section class="hero">
+    <h1>Welcome to the Gaming Community Hub</h1>
+    <p>Your home for Roblox, Fortnite, memes, guides, and community fun.</p>
+  </section>
 
-    <!-- Google Font (optional) -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
-  </head>
+  <section class="grid">
+    <a class="card" href="news.html">
+      <h2>📰 Latest News</h2>
+      <p>Updates, patches, and new releases.</p>
+    </a>
+    <a class="card" href="forums.html">
+      <h2>💬 Forums</h2>
+      <p>Community discussions and game tips.</p>
+    </a>
+    <a class="card" href="memes.html">
+      <h2>🔥 Meme Zone</h2>
+      <p>Daily memes submitted by gamers.</p>
+    </a>
+    <a class="card" href="profiles.html">
+      <h2>🌟 Profiles</h2>
+      <p>Top community players and avatars.</p>
+    </a>
+    <a class="card" href="giveaways.html">
+      <h2>🎁 Giveaways</h2>
+      <p>Real gift cards and rewards.</p>
+    </a>
+  </section>
 
-  <body class="bg-slate-900 text-white">
-    <div id="root"></div>
-
-    <!-- Vite will replace this with your bundled JS -->
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+  <footer class="footer">© 2025 Gaming Community Hub</footer>
+</body>
 </html>
