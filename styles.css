@@ -1,0 +1,312 @@
+/* ------------------------------ */
+/* Global Styles - Gaming Hub     */
+/* ------------------------------ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: #0d0f16;
+  color: #ffffff;
+  line-height: 1.6;
+}
+
+/* ------------------------------ */
+/* Header                         */
+/* ------------------------------ */
+
+.header {
+  width: 100%;
+  padding: 15px 25px;
+  background: #1a1f2e;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid #2b3145;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #4da3ff;
+}
+
+.nav a {
+  margin-left: 18px;
+  color: #d0d6e4;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: #4da3ff;
+}
+
+/* ------------------------------ */
+/* Hero Section                   */
+/* ------------------------------ */
+
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #1f2a44, #111827);
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  color: #4da3ff;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* ------------------------------ */
+/* Grid Cards (Home Page)         */
+/* ------------------------------ */
+
+.grid {
+  max-width: 1100px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 0 20px;
+}
+
+.card {
+  background: #1a1f2e;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #2b3145;
+  text-decoration: none;
+  color: white;
+  transition: 0.25s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #4da3ff;
+}
+
+.card h2 {
+  margin-bottom: 10px;
+  color: #4da3ff;
+}
+
+.card p {
+  opacity: 0.85;
+}
+
+/* ------------------------------ */
+/* Page Header                    */
+/* ------------------------------ */
+
+.page-header {
+  text-align: center;
+  padding: 60px 20px;
+  background: #131722;
+  border-bottom: 1px solid #2b3145;
+}
+
+.page-header h1 {
+  font-size: 2.4rem;
+  color: #4da3ff;
+}
+
+.page-header p {
+  opacity: 0.85;
+}
+
+/* ------------------------------ */
+/* News Page                      */
+/* ------------------------------ */
+
+.news-list {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  gap: 20px;
+}
+
+.news-item {
+  background: #1a1f2e;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid #2b3145;
+}
+
+.news-item h2 {
+  color: #4da3ff;
+  margin-bottom: 8px;
+}
+
+.date {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: #9aa3b8;
+}
+
+/* ------------------------------ */
+/* Forums Page                    */
+/* ------------------------------ */
+
+.forum-list {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  gap: 20px;
+}
+
+.forum-item {
+  background: #1a1f2e;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #2b3145;
+}
+
+.forum-item h2 {
+  color: #4da3ff;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 16px;
+  background: #4da3ff;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  cursor: pointer;
+  border: none;
+  transition: 0.25s;
+}
+
+.btn:hover {
+  background: #388be0;
+}
+
+/* ------------------------------ */
+/* Meme Grid                      */
+/* ------------------------------ */
+
+.meme-grid {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.meme-card {
+  background: #1a1f2e;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid #2b3145;
+}
+
+.meme-card img {
+  width: 100%;
+  display: block;
+}
+
+.meme-card p {
+  padding: 10px;
+  font-size: 0.95rem;
+}
+
+/* ------------------------------ */
+/* Profiles Page                  */
+/* ------------------------------ */
+
+.profile-grid {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.profile-card {
+  background: #1a1f2e;
+  padding: 20px;
+  text-align: center;
+  border-radius: 12px;
+  border: 1px solid #2b3145;
+}
+
+.profile-card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+
+.profile-card h2 {
+  color: #4da3ff;
+  margin-bottom: 6px;
+}
+
+.rank {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 5px 10px;
+  background: #4da3ff;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+/* ------------------------------ */
+/* Giveaways Page                 */
+/* ------------------------------ */
+
+giveaway-grid {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  display: grid;
+  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.giveaway-card {
+  background: #1a1f2e;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #2b3145;
+}
+
+.giveaway-card h2 {
+  color: #4da3ff;
+  margin-bottom: 10px;
+}
+
+/* ------------------------------ */
+/* Footer                         */
+/* ------------------------------ */
+
+.footer {
+  text-align: center;
+  padding: 25px;
+  margin-top: 40px;
+  background: #111827;
+  color: #9aa3b8;
+  font-size: 0.9rem;
+  border-top: 1px solid #2b3145;
+}
