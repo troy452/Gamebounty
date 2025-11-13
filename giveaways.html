@@ -4,46 +4,77 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Giveaways - Gaming Community Hub</title>
+  <meta name="description" content="Enter giveaways for Roblox gift cards, V-Bucks, and gaming rewards.">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="header">
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-left">
+    <button id="hamburger">☰</button>
     <div class="logo">Gaming Hub</div>
-    <nav class="nav">
-      <a href="index.html">Home</a>
-      <a href="news.html">News</a>
-      <a href="forums.html">Forums</a>
-      <a href="memes.html">Memes</a>
-      <a href="profiles.html">Profiles</a>
-      <a href="giveaways.html" class="active">Giveaways</a>
-    </nav>
-  </header>
+  </div>
 
-  <section class="page-header">
-    <h1>🎁 Giveaways</h1>
-    <p>Enter real giveaways for gift cards, in-game items, and gaming rewards.</p>
-  </section>
+  <nav class="nav" id="mainNav">
+    <a href="index.html">Home</a>
+    <a href="news.html">News</a>
+    <a href="forums.html">Forums</a>
+    <a href="memes.html">Memes</a>
+    <a href="profiles.html">Profiles</a>
+    <a href="giveaways.html" class="active">Giveaways</a>
+  </nav>
 
-  <section class="giveaway-grid">
-    <div class="giveaway-card">
-      <h2>$20 Roblox Gift Card</h2>
-      <p>Enter to win a Roblox digital gift card. Winner picked monthly.</p>
-      <button class="btn">Enter Giveaway</button>
+  <div class="header-right">
+    <div class="theme-switch">
+      <select id="themeSelect">
+        <option value="">Default</option>
+        <option value="theme-roblox">Roblox</option>
+        <option value="theme-fortnite">Fortnite</option>
+      </select>
     </div>
+  </div>
+</header>
 
-    <div class="giveaway-card">
-      <h2>1,000 V-Bucks</h2>
-      <p>Win Fortnite V-Bucks to use for skins, emotes, and battle passes.</p>
-      <button class="btn">Enter Giveaway</button>
-    </div>
+<!-- MOBILE NAV -->
+<nav class="bottom-nav">
+  <a href="index.html">Home</a>
+  <a href="forums.html">Forums</a>
+  <a href="memes.html">Memes</a>
+  <a href="profiles.html">Profile</a>
+</nav>
 
-    <div class="giveaway-card">
-      <h2>Gaming Headset</h2>
-      <p>High-quality headset for Roblox, Fortnite, and streaming.</p>
-      <button class="btn">Enter Giveaway</button>
-    </div>
-  </section>
+<!-- PAGE HEADER -->
+<section class="page-header fade-in">
+  <h1>🎁 Giveaways</h1>
+  <p>Enter for a chance to win real gaming prizes every month.</p>
+</section>
 
-  <footer class="footer">© 2025 Gaming Community Hub</footer>
+<!-- GIVEAWAY GRID -->
+<section class="giveaway-grid fade-in">
+
+  <div class="giveaway-card">
+    <h2>$20 Roblox Gift Card</h2>
+    <p>Enter to win a Roblox digital card. Winner chosen monthly.</p>
+    <button class="btn">Enter Giveaway</button>
+  </div>
+
+  <div class="giveaway-card">
+    <h2>1,000 V-Bucks</h2>
+    <p>Win Fortnite V-Bucks for skins, emotes, and battle passes.</p>
+    <button class="btn">Enter Giveaway</button>
+  </div>
+
+  <div class="giveaway-card">
+    <h2>Gaming Headset</h2>
+    <p>High-quality headset perfect for streaming and gaming.</p>
+    <button class="btn">Enter Giveaway</button>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">© 2025 Gaming Community Hub — All rights reserved.</footer>
+<script src="script.js"></script>
 </body>
 </html>
